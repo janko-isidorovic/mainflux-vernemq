@@ -12,6 +12,7 @@ metadata:
   {{- end }}
   {{- with .Values.statefulset.annotations }}
   annotations:
+    sidecar.istio.io/inject:false
     {{ toYaml . | nindent 4 }}
   {{- end }}
 spec:
