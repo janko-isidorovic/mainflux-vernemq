@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: erlio/docker-vernemq
-  tag: 1.9.1-alpine
+  repository: mainflux/mqtt-verne
+  tag: latest
   pullPolicy: IfNotPresent
 
 nameOverride: ""
@@ -153,6 +153,36 @@ additionalEnv:
     value: "on"
   - name: DOCKER_VERNEMQ_ALLOW_UNSUBSCRIBE_DURING_NETSPLIT
     value: "on"
+  - name: MF_MQTT_ADAPTER_LOG_LEVEL
+    value: warning
+  - name: MF_MQTT_INSTANCE_ID
+    value: "mqtt-adapter-1"
+  - name: MF_MQTT_ADAPTER_PORT
+    value: "1883"
+  - name: MF_MQTT_ADAPTER_WS_PORT
+    value: "8880"
+  - name: MF_MQTT_ADAPTER_REDIS_URL
+    value: "tcp://mainflux-redis.redis-mqtt-master:6379"
+  - name: MF_MQTT_ADAPTER_ES_URL
+    value: "tcp://mainflux-redis.redis-streams-master:6379"
+  - name: MF_NATS_URL
+    value: "${MF_NATS_URL}"
+  - name: MF_THINGS_AUTH_GRPC_URL
+    value: "http://things:8183"
+  - name: DOCKER_VERNEMQ_PLUGINS__VMQ_PASSWD
+    value: "off"
+  - name: DOCKER_VERNEMQ_PLUGINS__VMQ_ACL
+    value: "off"
+  - name: DOCKER_VERNEMQ_PLUGINS__MFX_AUTH
+    value: "on"
+  - name: DOCKER_VERNEMQ_PLUGINS__MFX_AUTH__PATH
+    value: "/mainflux/_build/default"
+  - name: DOCKER_VERNEMQ_LOG__CONSOLE__LEVEL
+    value: "debug"
+  - name: MF_MQTT_VERNEMQ_GRPC_POOL_SIZE
+    value: "1"
+  - name: DOCKER_VERNEMQ_COMPOSE
+    value: "1"
 #  - name: DOCKER_VERNEMQ_ALLOW_ANONYMOUS
 #    value: "on"
 #  - name: DOCKER_VERNEMQ_MAX_CLIENT_ID_SIZE
