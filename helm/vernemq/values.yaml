@@ -162,9 +162,9 @@ additionalEnv:
   - name: MF_MQTT_ADAPTER_WS_PORT
     value: "8880"
   - name: MF_MQTT_ADAPTER_REDIS_URL
-    value: "tcp://mainflux-redis.redis-mqtt-master:6379"
+    value: "tcp://redis-mqtt-master.mainflux-redis:6379"
   - name: MF_MQTT_ADAPTER_ES_URL
-    value: "tcp://mainflux-redis.redis-streams-master:6379"
+    value: "tcp://redis-streams-master.mainflux-redis:6379"
   - name: MF_NATS_URL
     value: "nats://nats-nats-client.mainflux-nats:4222"
   - name: MF_THINGS_AUTH_GRPC_URL
