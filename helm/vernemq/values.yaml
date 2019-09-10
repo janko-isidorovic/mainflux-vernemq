@@ -181,8 +181,6 @@ additionalEnv:
     value: "debug"
   - name: MF_MQTT_VERNEMQ_GRPC_POOL_SIZE
     value: "1"
-  - name: DOCKER_VERNEMQ_COMPOSE
-    value: "1"
 #  - name: DOCKER_VERNEMQ_ALLOW_ANONYMOUS
 #    value: "on"
 #  - name: DOCKER_VERNEMQ_MAX_CLIENT_ID_SIZE
